@@ -1,21 +1,29 @@
-class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
-        def dfs(board, i, j, count, word):
-            if(count == len(word)):
-                return True
-            if i < 0 or j < 0 or i >= len(board) or j >= len(board[0]) or word[count] != board[i][j]:
-                return False
+'''
+    O(n^2) for dfs search
+'''
 
-            temp = board[i][j]
-            board[i][j] = ""
 
-            found = dfs(board, i+1, j, count+1, word) or dfs(board, i-1, j, count+1,
-                                                             word) or dfs(board, i, j+1, count+1, word) or dfs(board, i, j-1, count+1, word)
-            board[i][j] = temp
-            return found
+def exist(self, board: List[List[str]], word: str) -> bool:
+    visited = [[False] * len(board[i]) for i in range(len(board))]
 
-        for i in range(len(board)):
-            for j in range(len(board[0])):
-                if board[i][j] == word[0] and dfs(board, i, j, 0, word):
+    def search(board, row, col, word):
+        if len(word) == 0:
+            return True
+
+        visited[row][col] = True
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        for x, y in directions:
+            if (row + x < len(board) and row + x >= 0 and col + y < len(board[row]) and col + y >= 0) and board[row + x][col + y] == word[0] and visited[row + x][col + y] != True:
+                if search(board, row + x, col + y, word[1:]):
                     return True
+
+        visited[row][col] = False
         return False
+
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            if board[i][j] == word[0]:
+                if search(board, i, j, word[1:]):
+                    return True
+
+    return False

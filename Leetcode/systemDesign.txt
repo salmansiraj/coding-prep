@@ -1,0 +1,54 @@
+Load balancing: 
+    * Help distribute traffic 
+    * Routes client requests in a number of different web servers 
+    * Figuring out which machine can have more load and send there 
+
+Caching: 
+    * For repetitive queries, add in a memory cache
+    * Content Delivery Networks -> Global network of servers for image/videos/css so you would 
+        have more room in your own server
+
+
+Database Index: 
+    * Way of sorting number of records on multiple fields. Creating an index on a field 
+        will create another DS which holds the field value, aand a pointer to the record, 
+        this allows binary searches to be performed on it 
+    e.g. Finding users in your location, you would index the Lat/Long in order to find
+
+To prevent duplicates in database: 
+    * Find a way to separate into two tables and have a table connecting the two 
+    * CUSTOMERS <--> ORDERS <--> PRODUCTS
+
+Primary Keys:
+    * Field that uniquely identifies a row in a table 
+
+Foreign Keys: 
+    * Field that unique identifies a primary key /row to another table
+    * Foreign keys in a taable can make up bring a primary key if there's restrictions
+
+Sharding database: 
+    * Horizontal sharding used to split a table (that is getting bigger and 
+        bigger like tweets) across multiple machines
+    * Vertical sharding used to split tables across different machines (users, products, etc.)
+
+Replication: 
+    * Duplicating records in the database in case of servers going down.
+    * Replication on write and update can happen at the same time.
+
+-----
+NoSQL: 
+    * Key, value pair models, naturally able to scale (chat)
+    * Follows BASE 
+    Basically Available: Guarantees availability 
+    Soft State: System may change overtime 
+
+SQL: 
+    * For persistent needs and restrictions, using a relational database
+    * Good Relational DB follows ACID 
+    Atomic: Transaction containing other operations as well, to make sure all layers succeed 
+    Consistency: Transaction is valid based on rules and doesn't corrupt data 
+    Isolation: Can concurrently run multiple queries at the same time
+    Durability: Persistent data, once its in there it will stay there
+
+Questions -
+* what type of load are we handling? 
