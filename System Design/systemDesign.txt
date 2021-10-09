@@ -8,6 +8,8 @@ Caching:
     * Content Delivery Networks -> Global network of servers for image/videos/css so you would 
         have more room in your own server
 
+eg. Nginx is a seperate server that would be able to cache and do load balancing on incoming requests from servers, 
+        and therefore is able to facilitate  availability and scalability for application
 
 Database Index: 
     * Way of sorting number of records on multiple fields. Creating an index on a field 
@@ -24,7 +26,7 @@ Primary Keys:
 
 Foreign Keys: 
     * Field that unique identifies a primary key /row to another table
-    * Foreign keys in a taable can make up bring a primary key if there's restrictions
+    * Foreign keys in a table can make up bring a primary key if there's restrictions
 
 Sharding database: 
     * Horizontal sharding used to split a table (that is getting bigger and 
