@@ -1,3 +1,8 @@
+CAP Theorem: Distributed database can only satisfy two of the three features: 
+    - Consistency: Every node responds with most recent version of the data 
+    - Availability: Any node can send a response 
+    - Partition Tolerance: The system continures working even if communication between nodes is broken 
+
 Load balancing: 
     * Help distribute traffic 
     * Routes client requests in a number of different web servers 
@@ -54,3 +59,4 @@ SQL:
 
 Questions -
 * what type of load are we handling? 
+- For social network analytics, graphDB bettwe bc u wont need JOINS to follow relationship edges, bc data isnt stored in tables 
